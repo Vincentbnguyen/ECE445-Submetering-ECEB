@@ -7,3 +7,28 @@ My ESP32 order got delivered and I played around with uploading and running some
 
 # 2023-09-26 - Discussion with Professor Schuh and Professor Mironenko
 We discussed the project requirements and bounced some ideas around on the method for our voltage and current measurements, and our vision for the end project.
+
+
+# 2023-09-28
+We discussed the concept of sampling and calculating the real and apparent power given a sinusoidal voltage input into the microcontroller and came up with a plan on how to implement that.
+<img width="450" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/fab6eee2-ae23-419f-9cf9-4210f8ffabdd">
+
+# 2023-10-4
+I researched more into Analog-to-Digital converters onboard the ESP32 microcontroller and realized we wanted more accuracy, so an ADS1115 circuit is a better option to have more reliable and consistent analog inputs.
+
+# 2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs
+<img width="1920" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/9b5cb780-ec59-48be-88b2-ea6277236a7c">
+
+While our sensors were being built, I prepared our program to mock voltage and current inputs so that I can start building the functionality to sample the input. I created a sin function and displayed it on the Arduini IDE's serial monitor to see the created waves.
+
+# 2023-10-11 - Calculating Real and Apparent Power
+<img width="1920" alt="Screenshot 2023-10-11 at 1 28 50 AM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/66f65379-7b41-402c-b304-ebc9ef43d081">
+
+I sampled my simulated inputs and created a program that uses a rolling window of samples to calculate and update the real and apparent power. Right now, it currently is able to sample at 1000 HZ of my simulated wave and produce real and apparent power claculations.
+
+Here is the current method for power calculations:
+To calculate real power:
+For every sample, we multiply the instantaneous voltage and current. Once we have enough samples, we then average this sample set to produce our real power. In order to update our real power as we continue to sample, we remove the oldest sample in our sample set and factor in the new sample.
+
+To calculate apparent power:
+For every sample, we process voltage and and current seperately where we square each measurement. Once we have enough samples, we take the average of each sample set, and then square root them to obtain the RMS value for each sample set. The apparent power is then calculated by the multiplying the voltage and current RMS values. In order to update our apparent power as we continue to sample, we remove the oldest samples in our sample sets, and factor in the new samples.
