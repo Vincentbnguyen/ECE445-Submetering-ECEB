@@ -1,6 +1,11 @@
 # Vincent Worklog
-[[_TOC_]]
-
+- [2023-09-24](#2023-09-24)
+- [2023-09-26 - Discussion with Professor Schuh and Professor Mironenko](#2023-09-26---discussion-with-professor-schuh-and-professor-mironenko)
+- [2023-09-28](#2023-09-28)
+- [2023-10-2](#2023-10-2)
+- [2023-10-4](#2023-10-4)
+- [2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs](#2023-10-10---simulating-sinusoidal-voltage-and-current-inputs)
+- [2023-10-11 - Calculating Real and Apparent Power](#2023-10-11---calculating-real-and-apparent-power)
 
 # 2023-09-24
 My ESP32 order got delivered and I played around with uploading and running some code on the device and trying to connect to my apartment WiFi,
