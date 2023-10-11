@@ -11,17 +11,20 @@ We discussed the project requirements and bounced some ideas around on the metho
 
 # 2023-09-28
 We discussed the concept of sampling and calculating the real and apparent power given a sinusoidal voltage input into the microcontroller and came up with a plan on how to implement that.
+
 <img width="450" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/fab6eee2-ae23-419f-9cf9-4210f8ffabdd">
 
 # 2023-10-4
 I researched more into Analog-to-Digital converters onboard the ESP32 microcontroller and realized we wanted more accuracy, so an ADS1115 circuit is a better option to have more reliable and consistent analog inputs.
 
 # 2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs
+
 <img width="1920" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/9b5cb780-ec59-48be-88b2-ea6277236a7c">
 
 While our sensors were being built, I prepared our program to mock voltage and current inputs so that I can start building the functionality to sample the input. I created a sin function and displayed it on the Arduini IDE's serial monitor to see the created waves.
 
 # 2023-10-11 - Calculating Real and Apparent Power
+
 <img width="1920" alt="Screenshot 2023-10-11 at 1 28 50 AM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/66f65379-7b41-402c-b304-ebc9ef43d081">
 
 I sampled my simulated inputs and created a program that uses a rolling window of samples to calculate and update the real and apparent power. Right now, it currently is able to sample at 1000 HZ of my simulated wave and produce real and apparent power claculations.
