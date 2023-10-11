@@ -3,7 +3,7 @@
 
 
 # 2023-09-24
-My ESP32 order got delivered and I played around with uploading and running some code on the device.
+My ESP32 order got delivered and I played around with uploading and running some code on the device and trying to connect to my apartment WiFi,
 
 # 2023-09-26 - Discussion with Professor Schuh and Professor Mironenko
 We discussed the project requirements and bounced some ideas around on the method for our voltage and current measurements, and our vision for the end project.
@@ -13,6 +13,14 @@ We discussed the project requirements and bounced some ideas around on the metho
 We discussed the concept of sampling and calculating the real and apparent power given a sinusoidal voltage input into the microcontroller and came up with a plan on how to implement that.
 
 <img width="450" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/fab6eee2-ae23-419f-9cf9-4210f8ffabdd">
+
+# 2023-10-2
+I successfully was able to create a IoT Hub instance on Azure, and upload mock data to that hub. This was made possible by a Arduino Library offered by Azure where it utilized the MQTT protocol to connect my ESP32 to the IoT Hub and send a JSON Payload.
+I then routed that data from the IoT Hub to an Azure Cosmos Database.
+I also confirmed that I was able to provide the ESP32 a WiFi connection on Illinois_Guest by registering the device with its MAC Address on this site: https://clearpasspub.techservices.illinois.edu/guest/auth_login.php
+This is great since ideally the device should be able to perform at the ECEB!
+
+<img width="1908" alt="Screenshot 2023-10-11 at 1 34 48 AM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/95262fd5-a486-4533-b27b-dd4d563cdd55">
 
 # 2023-10-4
 I researched more into Analog-to-Digital converters onboard the ESP32 microcontroller and realized we wanted more accuracy, so an ADS1115 circuit is a better option to have more reliable and consistent analog inputs.
