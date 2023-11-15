@@ -1,9 +1,11 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
-#include<ADS1115_WE.h>
+
 #define I2C_ADDRESS 0x48
 
-ADS1115_WE adc = ADS1115_WE(I2C_ADDRESS);
+#include <ADS1115_lite.h>
+ADS1115_lite adc(ADS1115_DEFAULT_ADDRESS);
+
 // set the LCD number of columns and rows
 int lcdColumns = 16;
 int lcdRows = 2;
@@ -20,10 +22,10 @@ float v_samples_squared[sampleSize];
 float i_samples_squared[sampleSize];
 
 float calibrate_offset = -0.07; // calibrated using scopy
-float v_offset = 0; // centered by subtracting the offset (make it negative)
+float v_offset = -1.50; // centered by subtracting the offset (make it negative)
 
 int useSimulator = 0; // 0 = physical
-int shouldPrintLabels = true;
+int shouldPrintLabels = false;
 int hasEnoughSamples = false;
 int shouldPrintPP = false;
 int useLCD = false;
@@ -40,7 +42,7 @@ int useLCD = false;
 // shown in Table 4.
 // The state of address pin ADDR is sampled continuously. Use the GND, VDD and SCL addresses first.
 
-
+int16_t rawResult;
 float v = 0; // sampled 
 float i = 0; // sampled
 
@@ -61,6 +63,10 @@ float v_rms_sum = 0;
 float i_rms_sum = 0;
 float instantaneous_sum = 0;
 
+unsigned long starttime;
+unsigned long endtime ;
+float freq = 0;
+
 void setup() {
   Serial.begin(250000);
   setLCDSettings();
@@ -75,20 +81,30 @@ void loop() {
     v = v_amplitude * sin(2 * PI * v_freq * (currentIndex * sampleRateMS * 0.001) + v_phaseShift);
     i = i_amplitude * sin(2 * PI * i_freq * (currentIndex * sampleRateMS * 0.001) + i_phaseShift);
   } else {
-    // 12 sec total, 6 sec each
-    v = readChannel(ADS1115_COMP_0_GND) + v_offset + calibrate_offset;
-    i = readChannel(ADS1115_COMP_1_GND) + v_offset + calibrate_offset;
+    // A0 = Voltage, A1 = Current's voltage
+    starttime = micros();
+    adc.setMux(ADS1115_REG_CONFIG_MUX_SINGLE_0); //Set single ended mode between AIN0 and GND
+    adc.triggerConversion(); 
+    rawResult = adc.getConversion(); //This polls the ADS1115 and wait for conversion to finish, THEN returns the value
+    v = (((rawResult * 1.0 / 32768) * 2048) / 1000) + v_offset;  // (rawResult * 1.0 / ADS1115_REG_FACTOR) * voltageRange;
+
+    adc.setMux(ADS1115_REG_CONFIG_MUX_SINGLE_1); //Set single ended mode between AIN1 and GND
+    adc.triggerConversion();
+    rawResult = adc.getConversion(); //This polls the ADS1115 and wait for conversion to finish, THEN returns the value
+    i = (((rawResult * 1.0 / 32768) * 2048) / 1000) + v_offset;  // raw -> voltage formula = (rawResult * 1.0 / ADS1115_REG_FACTOR) * voltageRange;
+    endtime = micros();
+    freq = 1/((endtime - starttime) * 0.000001);
   }
+  // Serial.print(String(freq) + "  ");
   printInstantaneous(v, i);
 
   float new_instant_power = v * i;
   float new_v_squared = v * v;
   float new_i_squared = i * i;
-  Serial.print(String(currentIndex) + "  ");
+  // Serial.print(String(currentIndex) + "  ");
   if (hasEnoughSamples == false) { 
     // populate starting samples
     // collect for instantaneous
-    
     instantaneous_power_samples[currentIndex] = new_instant_power;
     instantaneous_sum += new_instant_power;
 
@@ -104,7 +120,6 @@ void loop() {
       lcd.print(String(currentIndex) + "/1000");
     }
     
-    // Serial.print(String(currentIndex) + "/1000" + "  ");
     if (currentIndex == sampleSize - 1) {
       hasEnoughSamples = true;
       // calculate p_real
@@ -158,45 +173,15 @@ void loop() {
   printPower(p_real, p_rms);
 
   Serial.println(" ");
-  // controls sample rate
- // delay(sampleRateMS);
 }
 
 void setADCSettings() {
-  if(!adc.init()){
-    Serial.println("ADS1115 not connected!");
+  if (!adc.testConnection()) {
+    Serial.println("ADS1115 Connection failed"); //oh man...something is wrong
+    return;
   }
-
-  /* Set the voltage range of the ADC to adjust the gain
-   * Please note that you must not apply more than VDD + 0.3V to the input pins!
-   * 
-   * ADS1115_RANGE_6144  ->  +/- 6144 mV
-   * ADS1115_RANGE_4096  ->  +/- 4096 mV
-   * ADS1115_RANGE_2048  ->  +/- 2048 mV (default)
-   * ADS1115_RANGE_1024  ->  +/- 1024 mV
-   * ADS1115_RANGE_0512  ->  +/- 512 mV
-   * ADS1115_RANGE_0256  ->  +/- 256 mV
-   */
-  adc.setVoltageRange_mV(ADS1115_RANGE_2048); //comment line/change parameter to change range
-
-  adc.setCompareChannels(ADS1115_COMP_0_GND); //comment line/change parameter to change channel
-  adc.setCompareChannels(ADS1115_COMP_1_GND);
-
-  adc.setMeasureMode(ADS1115_CONTINUOUS); //comment line/change parameter to change mode
-
-    /* Set the conversion rate in SPS (samples per second)
-   * Options should be self-explaining: 
-   * 
-   *  ADS1115_8_SPS 
-   *  ADS1115_16_SPS  
-   *  ADS1115_32_SPS 
-   *  ADS1115_64_SPS  
-   *  ADS1115_128_SPS (default)
-   *  ADS1115_250_SPS 
-   *  ADS1115_475_SPS 
-   *  ADS1115_860_SPS 
-   */
-  adc.setConvRate(ADS1115_860_SPS); //uncomment if you want to change the default
+  adc.setGain(ADS1115_REG_CONFIG_PGA_2_048V); // set +- voltage input range
+  adc.setSampleRate(ADS1115_REG_CONFIG_DR_860SPS); //Set the slowest and most accurate sample rate
 }
 
 void setLCDSettings() {
@@ -206,13 +191,6 @@ void setLCDSettings() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Sampling...");
-}
-
-float readChannel(ADS1115_MUX channel) {
-  float voltage = 0.0;
-  adc.setCompareChannels(channel);
-  voltage = adc.getResult_V(); // alternative: getResult_mV for Millivolt
-  return voltage;
 }
 
 void printRealPowerToLCD(float p_real) {

@@ -71,7 +71,7 @@ void loop(void) {
     Serial.println("=======================");
 
 
-    delay(2000); //Delay just because
+    delay(1); //Delay just because
 
 
     // Serial.print("Setting mux to differential mode between AIN0 and AIN01 @128SPS...");
