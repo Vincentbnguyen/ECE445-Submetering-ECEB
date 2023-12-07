@@ -5,7 +5,7 @@
   - [2023-10-10 - First version of pcb](#2023-10-10---First-version-of-pcb)
   - [2023-10-19 - Meeting with Jason](#2023-10-19---Meeting-with-Jason)
   - [2023-10-30 - Adjust the PCB design](#2023-10-30---Adjust-the-PCB-design)
-  - [2023-11-01 - Finalize the PCB design](#2023-11-01---Finalize-the PCB-design)
+  - [2023-11-01 - Finalize the PCB design](#2023-11-01---Finalize-the-PCB-design)
   - [2023-11-06 - ](#2023-11-06---Soldering-practice)
   - [2023-09-28 - ](#2023-01-11---)
   - [2023-09-28 - ](#2023-01-11---)
