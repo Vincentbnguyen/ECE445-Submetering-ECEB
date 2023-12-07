@@ -53,5 +53,12 @@ For every sample, we process voltage and and current seperately where we square 
 <img width="1918" alt="Screenshot 2023-10-31 at 9 43 26 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cc82c02a-789d-4950-addd-418a7ad9450c">
 <img width="1920" alt="Screenshot 2023-10-31 at 9 43 36 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/6fef086e-24ba-4451-bbb9-c00bb0636e1e">
 
-# 2023-11-6: ![IMG_5187](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cf9c103b-18c2-48d0-a292-2e90b902bd3b)
+# 2023-11-6: PCB Soldering
+We practiced soldering the componenets on our first version of the PCB.
+![IMG_5187](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cf9c103b-18c2-48d0-a292-2e90b902bd3b)
+
+# 2023-11-13: Design + 3D Print Enclosure
+I made a modular design that I could transport from my home onto the plane and the pieces were superglued together.
+![image](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/4be10618-cc8b-4dfe-89a7-64fa1d5e2317)
+
 
