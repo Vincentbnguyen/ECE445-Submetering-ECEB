@@ -50,6 +50,9 @@ To calculate apparent power:
 For every sample, we process voltage and and current seperately where we square each measurement. Once we have enough samples, we take the average of each sample set, and then square root them to obtain the RMS value for each sample set. The apparent power is then calculated by the multiplying the voltage and current RMS values. In order to update our apparent power as we continue to sample, we remove the oldest samples in our sample sets, and factor in the new samples.
 
 # 2023-10-31: Using Scopy for waveforms input
+I was able to generate sample waveform inputs at home using Scopy with set parameters for easy testing.
+![IMG_5293](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/474ec63f-042c-44fd-9b30-4c441aee007c)
+
 <img width="1918" alt="Screenshot 2023-10-31 at 9 43 26 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cc82c02a-789d-4950-addd-418a7ad9450c">
 <img width="1920" alt="Screenshot 2023-10-31 at 9 43 36 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/6fef086e-24ba-4451-bbb9-c00bb0636e1e">
 
@@ -60,5 +63,19 @@ We practiced soldering the componenets on our first version of the PCB.
 # 2023-11-13: Design + 3D Print Enclosure
 I made a modular design that I could transport from my home onto the plane and the pieces were superglued together.
 ![image](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/4be10618-cc8b-4dfe-89a7-64fa1d5e2317)
+
+# 2023-11-27: Finalizing my part and finalizing code and observing accuracy
+I used a new ADC that samples faster and started assembling the 3D print.
+![IMG_5414](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/a585ad43-cf45-4afb-8edc-12980f6d30e8)
+![IMG_5415](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/285453a4-3356-4e18-b116-d2f87e7fea33)
+Results with low power sample input:
+<img width="1410" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/5865a38c-ef35-46fd-a110-e247d8c8b9ff">
+
+
+# 2023-12-4: Finalize for Demo
+Parts seemed to fit inside enclosure and my signal processing code accurately measures low power waveform inputs.
+![IMG_5487](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/5b1bb101-4e2c-4ba6-9165-d4d6427da7f1)
+
+
 
 
