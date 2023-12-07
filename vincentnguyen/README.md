@@ -1,11 +1,16 @@
 # Vincent Worklog
-- [2023-09-24 - ESP32 Received](#2023-09-24---esp32-received)
-- [2023-09-26 - Discussion with Professor Schuh and Professor Mironenko](#2023-09-26---discussion-with-professor-schuh-and-professor-mironenko)
-- [2023-09-28 - Power Calculation Lessons](#2023-09-28---power-calculation-lessons)
-- [2023-10-2 - Successful Data Upload](#2023-10-2---successful-data-upload)
-- [2023-10-4 - ADS115 Discovery](#2023-10-4---ads115-discovery)
-- [2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs](#2023-10-10---simulating-sinusoidal-voltage-and-current-inputs)
-- [2023-10-11 - Calculating Real and Apparent Power](#2023-10-11---calculating-real-and-apparent-power)
+  - [2023-09-24 - ESP32 Received](#2023-09-24---esp32-received)
+  - [2023-09-26 - Discussion with Professor Schuh and Professor Mironenko](#2023-09-26---discussion-with-professor-schuh-and-professor-mironenko)
+  - [2023-09-28 - Power Calculation Lessons](#2023-09-28---power-calculation-lessons)
+  - [2023-10-2 - Successful Data Upload](#2023-10-2---successful-data-upload)
+  - [2023-10-4 - ADS115 Discovery](#2023-10-4---ads115-discovery)
+  - [2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs](#2023-10-10---simulating-sinusoidal-voltage-and-current-inputs)
+  - [2023-10-11 - Calculating Real and Apparent Power](#2023-10-11---calculating-real-and-apparent-power)
+  - [2023-10-31 - Using Scopy for waveforms input](#2023-10-31-using-scopy-for-waveforms-input)
+  - [2023-11-6 - PCB Soldering](#2023-11-6-pcb-soldering)
+  - [2023-11-13 - Design + 3D Print Enclosure](#2023-11-13-design--3d-print-enclosure)
+  - [2023-11-27 - Finalizing my part and finalizing code and observing accuracy](#2023-11-27-finalizing-my-part-and-finalizing-code-and-observing-accuracy)
+  - [2023-12-4 - Finalize for Demo](#2023-12-4-finalize-for-demo)
 
 # 2023-09-24 - ESP32 Received
 My ESP32 order got delivered and I played around with uploading and running some code on the device and trying to connect to my apartment WiFi,
