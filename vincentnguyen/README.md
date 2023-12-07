@@ -49,8 +49,9 @@ For every sample, we multiply the instantaneous voltage and current. Once we hav
 To calculate apparent power:
 For every sample, we process voltage and and current seperately where we square each measurement. Once we have enough samples, we take the average of each sample set, and then square root them to obtain the RMS value for each sample set. The apparent power is then calculated by the multiplying the voltage and current RMS values. In order to update our apparent power as we continue to sample, we remove the oldest samples in our sample sets, and factor in the new samples.
 
-
-
 # 2023-10-31: Using Scopy for waveforms input
 <img width="1918" alt="Screenshot 2023-10-31 at 9 43 26 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cc82c02a-789d-4950-addd-418a7ad9450c">
 <img width="1920" alt="Screenshot 2023-10-31 at 9 43 36 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/6fef086e-24ba-4451-bbb9-c00bb0636e1e">
+
+# 2023-11-6: ![IMG_5187](https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cf9c103b-18c2-48d0-a292-2e90b902bd3b)
+
