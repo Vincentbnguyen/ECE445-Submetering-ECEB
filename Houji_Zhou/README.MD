@@ -1,5 +1,5 @@
 # Houji's Worklog
-  - [2023-09-26 - Discussion with Professor Schuh and Professor Mironenko](#2023-09-26---Discussion with Professor Schuh and Professor Mironenko)
+  - [2023-09-26 - Discussion with Professor Schuh and Professor Mironenko](#2023-09-26---Discussion-with-Professor-Schuh-and-Professor-Mironenko)
   - [2023-09-28 - First ESP32 trail](#2023-09-28---First ESP32 trail)
   - [2023-10-03 - SD module delivered](#2023-10-03---SD module delivered)
   - [2023-10-10 - First version of pcb](#2023-10-10---First version of pcb)
