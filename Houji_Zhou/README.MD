@@ -6,9 +6,12 @@
   - [2023-10-19 - Meeting with Jason](#2023-10-19---Meeting-with-Jason)
   - [2023-10-30 - Adjust the PCB design](#2023-10-30---Adjust-the-PCB-design)
   - [2023-11-01 - Finalize the PCB design](#2023-11-01---Finalize-the-PCB-design)
-  - [2023-11-06 - ](#2023-11-06---Soldering-practice)
-  - [2023-09-28 - ](#2023-01-11---)
-  - [2023-09-28 - ](#2023-01-11---)
+  - [2023-11-06 - Soldering practice](#2023-11-06---Soldering-practice)
+  - [2023-11-15 - ](#2023-11-15---Visualize-our-design)
+  - [2023-11-18 - Execute test with Sophia on sensor circuits](#2023-11-18---Execute-test-with-Sophia-on-sensor-circuits)
+  - [2023-11-19 - Continue testing](#2023-11-19---Continue-testing)
+  - [2023-11-27 - Combine subsystems](#2023-11-27---Combine-subsystems)
+  - [2023-11-28 - Prepare for the final demo](#2023-11-28---Prepare-for-the-final-demo)
   
 
 
@@ -44,19 +47,28 @@ The programming circuit subsystem
 And here is the first version of our PCB's board view
 <img width="450" alt="first version pcb board view" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/blob/main/Houji_Zhou/final_pcb.webp">
 # 2023-11-06---Soldering practice
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We use the old version PCB and extra components to practice soldering components on PCB.
+<img width="450" alt="first version pcb board view" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/blob/main/Houji_Zhou/soldering_practice.webp">
+# 2023-11-15---Visualize our design
+We try to visualize our design that can put everything inside of the box, and make it can fit into the electrical room.
+<img width="450" alt="first version pcb board view" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/blob/main/Houji_Zhou/virtualize%20design.webp">
+# 2023-11-18---Execute test with Sophia on sensor circuits
+I and Sophia go to the power lab and performe a serial of test on our sensor circuits. The test result shows the voltage sensor circuit can drop down the voltage that comes from voltage transformer to the acceptable range.Here are some testing figures and reading from O-scope.
+<img width="450" alt="first version pcb board view" src="https://raw.githubusercontent.com/Vincentbnguyen/ECE445-Submetering-ECEB/main/Houji_Zhou/tesing.webp">
+And here is the reading from O-scope
+<img width="450" alt="first version pcb board view" src="https://raw.githubusercontent.com/Vincentbnguyen/ECE445-Submetering-ECEB/main/Houji_Zhou/test_result.webp">
+#2023-11-19---Continue testing
+Me and Sophia done more testing on the current sensor circuits.
+<img width="450" alt="first version pcb board view" src="https://raw.githubusercontent.com/Vincentbnguyen/ECE445-Submetering-ECEB/main/Houji_Zhou/testing1.webp">
+#2023-11-27---Combine subsystems
+We meet up and try to combine our subsystems. We found that the stencil we ordered didn't come, and it is really hard to hand soldering the buck convertor and ESP32 on board. Here is the close pictures for the soldering.
+<img width="450" alt="first version pcb board view" src="https://raw.githubusercontent.com/Vincentbnguyen/ECE445-Submetering-ECEB/main/Houji_Zhou/hand_soldering2.webp">
+<img width="450" alt="first version pcb board view" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/blob/main/Houji_Zhou/hand_soldering1.webp">
+And here is the view we combined all our subsystems.
+<img width="450" alt="first version pcb board view" src="https://raw.githubusercontent.com/Vincentbnguyen/ECE445-Submetering-ECEB/main/Houji_Zhou/combined_subsystem.webp">
+Also, we found the programming circuit didn't work on board. Guessing it is because we didn't groud all components properly. Thus we decide to use the dev board to demo our project. 
+#2023-11-28---Prepare for the final demo
+This is view of our final demo
+<img width="450" alt="first version pcb board view" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/blob/main/Houji_Zhou/Final%20demo%20view.jpg">
 
 
