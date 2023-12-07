@@ -7,6 +7,7 @@
   - [2023-10-10 - Simulating Sinusoidal Voltage and Current Inputs](#2023-10-10---simulating-sinusoidal-voltage-and-current-inputs)
   - [2023-10-11 - Calculating Real and Apparent Power](#2023-10-11---calculating-real-and-apparent-power)
   - [2023-10-31 - Using Scopy for waveforms input](#2023-10-31-using-scopy-for-waveforms-input)
+  - [2023-11-2 - Realized there is a sampling delay between voltage and current input](#2023-11-2-realized-there-is-a-sampling-delay-between-voltage-and-current-input)
   - [2023-11-6 - PCB Soldering](#2023-11-6-pcb-soldering)
   - [2023-11-13 - Design + 3D Print Enclosure](#2023-11-13-design--3d-print-enclosure)
   - [2023-11-27 - Finalizing my part and finalizing code and observing accuracy](#2023-11-27-finalizing-my-part-and-finalizing-code-and-observing-accuracy)
@@ -60,6 +61,11 @@ I was able to generate sample waveform inputs at home using Scopy with set param
 
 <img width="1918" alt="Screenshot 2023-10-31 at 9 43 26 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/cc82c02a-789d-4950-addd-418a7ad9450c">
 <img width="1920" alt="Screenshot 2023-10-31 at 9 43 36 PM" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/6fef086e-24ba-4451-bbb9-c00bb0636e1e">
+
+# 2023-11-2: Realized there is a sampling delay between voltage and current input
+There is a small delay between sampling voltage and current input, so I did some math to manually add some phase offset to account for this.
+<img width="820" alt="image" src="https://github.com/Vincentbnguyen/ECE445-Submetering-ECEB/assets/90225857/a53c0221-1d90-4cab-b4e8-c02dc469e98b">
+
 
 # 2023-11-6: PCB Soldering
 We practiced soldering the componenets on our first version of the PCB.
